@@ -1,4 +1,3 @@
-require "coffee-script"
 assert = require "assert"
 _ = require "underscore"
 

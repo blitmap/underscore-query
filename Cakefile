@@ -5,7 +5,7 @@
 fs               = require 'fs'
 path             = require 'path'
 {spawn, exec}    = require 'child_process'
-CoffeeScript     = require 'coffee-script'
+CoffeeScript     = require 'coffeescript'
 handlebars       = require "handlebars"
 uglify = require 'uglify-js'
 wrapper = handlebars.compile fs.readFileSync("build/wrapper.js").toString()

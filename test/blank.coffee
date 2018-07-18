@@ -1,5 +1,4 @@
 # Requires
-require "coffee-script"
 assert = require('assert')
 _ = require "underscore"
 require("../src/underscore-query")(_)

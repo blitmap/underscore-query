@@ -20,12 +20,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "coffee-script": ">=1.7.x",
-    "mocha": "",
     "backbone": "",
-    "uglify-js": "",
+    "coffeescript": "^2.3.1",
     "handlebars": "",
     "lodash": "3.x",
+    "mocha": "",
+    "uglify-js": "",
     "underscore": ">=1.6.x"
   },
   "scripts": {

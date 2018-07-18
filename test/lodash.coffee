@@ -1,6 +1,4 @@
 # Requires
-require "coffee-script"
-
 assert = require "assert"
 _ = require "lodash"
 require("../src/underscore-query")(_)
