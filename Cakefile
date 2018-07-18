@@ -2,20 +2,15 @@
 # https://raw.github.com/harvesthq/chosen/master/Cakefile
 #
 
-fs               = require 'fs'
-path             = require 'path'
-{spawn, exec}    = require 'child_process'
-CoffeeScript     = require 'coffee-script'
-handlebars       = require "handlebars"
-uglify = require 'uglify-js'
-wrapper = handlebars.compile fs.readFileSync("build/wrapper.js").toString()
+fs            = require 'fs'
+path          = require 'path'
+{spawn, exec} = require 'child_process'
+CoffeeScript  = require 'coffee-script'
+uglify        = require 'uglify-js'
 
 output =
   'lib/underscore-query.js': ["src/underscore-query.coffee"]
   'lib/underscore-query.amd.js': ["src/underscore-query.coffee"]
-
-
-wrap = (code) ->  wrapper({code})
 
 task 'build', 'build  from source',  ->
   for js, sources of output
@@ -28,7 +23,12 @@ task 'build', 'build  from source',  ->
       file_contents = "#{fs.readFileSync source}"
       code += CoffeeScript.compile file_contents, {bare:isAMD}
     if isAMD
-      code = wrap(code)
+      code = """
+        // AMD Wrapper
+        define(function(){
+          #{code}
+        });
+        """
     fs.writeFileSync js, code
     minName = js.replace(/\.js$/,'.min.js')
     minCode =  uglify.minify(code, {fromString:true})

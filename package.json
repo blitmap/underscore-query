@@ -24,7 +24,6 @@
     "mocha": "",
     "backbone": "",
     "uglify-js": "",
-    "handlebars": "",
     "lodash": "3.x",
     "underscore": ">=1.6.x"
   },
